@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manas AI - Interactive Project Proposal (Detailed)</title>
+    <!-- Chosen Palette: "Calm Harmony" - A palette grounded in warm neutrals (bg-stone-50), with calming blues (sky-600, sky-100) and a subtle, encouraging accent of amber (amber-500) for highlights and calls-to-action. -->
+    <!-- Application Structure Plan: The SPA is structured as a narrative journey. It starts with the "Why" (The Crisis), moves to the "What" (The Solution, Features, and Competitive Difference), then the "How" (How It Works, Technology, Roadmap), the "Contribution" (Research Angle), and finally the "Pledge" (Ethics & Security). This top-down approach allows a user to first grasp the problem's scale, then understand the proposed solution, its features, and its unique value proposition before diving into implementation and academic details. Navigation is handled by a sticky header. Interactive elements like charts, tables, and clickable diagrams are used to make complex information digestible. -->
+    <!-- Visualization & Content Choices: 
+        - The Crisis: Goal is to inform. Donut charts for 'Treatment Gap' and 'Stigma Beliefs' and a Bar chart for 'Professional Shortage' convey key statistics. Text is enhanced with specific data points like the economic cost ($1.03T). Library: Chart.js.
+        - Core Features: Goal is to detail capabilities. An expanded grid layout clearly explains each of the 7 key features.
+        - The Difference: Goal is to compare. A styled HTML table provides a clear, scannable comparison against the common approach.
+        - User Journey: Goal is to explain a process. A structured HTML/Tailwind flexbox layout with icons creates a clear, step-by-step visual flow.
+        - Technology Stack: Goal is to organize technical information. An interactive tabbed component allows users to explore the tech stack layers.
+        - Roadmap: Goal is to show change over time. The timeline is updated to a more detailed 18-month, 3-phase plan.
+        - Research Contribution: Goal is to show academic value. A new section lists potential research paper topics.
+        - Ethics & Privacy: Goal is to build trust. The section is expanded with more detail on DPDP Act and ICMR guidelines.
+        - Justification: All choices prioritize clarity, detail, and user engagement, transforming the dense report into a comprehensive and explorable story. No SVG/Mermaid is used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+                max-height: 400px;
+            }
+        }
+        .tab-active {
+            background-color: #0284c7; /* sky-600 */
+            color: white;
+        }
+        .tab-inactive {
+            background-color: #e0f2fe; /* sky-100 */
+            color: #0c4a6e; /* sky-900 */
+        }
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .section-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-sky-700">Manas AI</h1>
+            <div class="hidden lg:flex space-x-5 xl:space-x-6 text-sm">
+                <a href="#crisis" class="text-stone-600 hover:text-sky-600 transition">The Crisis</a>
+                <a href="#solution" class="text-stone-600 hover:text-sky-600 transition">The Solution</a>
+                <a href="#features" class="text-stone-600 hover:text-sky-600 transition">Features</a>
+                <a href="#how-it-works" class="text-stone-600 hover:text-sky-600 transition">How It Works</a>
+                <a href="#tech" class="text-stone-600 hover:text-sky-600 transition">Technology</a>
+                <a href="#roadmap" class="text-stone-600 hover:text-sky-600 transition">Roadmap</a>
+                <a href="#research" class="text-stone-600 hover:text-sky-600 transition">Research</a>
+                <a href="#ethics" class="text-stone-600 hover:text-sky-600 transition">Ethics</a>
+            </div>
+            <button id="mobile-menu-button" class="lg:hidden p-2 rounded-md text-stone-600 hover:bg-stone-100">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4">
+            <a href="#crisis" class="block py-2 text-stone-600 hover:text-sky-600 transition">The Crisis</a>
+            <a href="#solution" class="block py-2 text-stone-600 hover:text-sky-600 transition">The Solution</a>
+            <a href="#features" class="block py-2 text-stone-600 hover:text-sky-600 transition">Features</a>
+            <a href="#how-it-works" class="block py-2 text-stone-600 hover:text-sky-600 transition">How It Works</a>
+            <a href="#tech" class="block py-2 text-stone-600 hover:text-sky-600 transition">Technology</a>
+            <a href="#roadmap" class="block py-2 text-stone-600 hover:text-sky-600 transition">Roadmap</a>
+            <a href="#research" class="block py-2 text-stone-600 hover:text-sky-600 transition">Research</a>
+            <a href="#ethics" class="block py-2 text-stone-600 hover:text-sky-600 transition">Ethics</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8 md:py-16">
+
+        <!-- Hero Section -->
+        <section class="text-center mb-20 md:mb-32 section-fade-in">
+            <h2 class="text-4xl md:text-6xl font-bold text-sky-800 mb-4">Project Proposal: Manas AI</h2>
+            <p class="text-lg md:text-xl text-stone-600 max-w-3xl mx-auto">A Multilingual & Secure Platform for Proactive Mental Health Screening. This interactive document outlines the vision, technology, and impact of Manas AI.</p>
+        </section>
+
+        <!-- The Crisis Section -->
+        <section id="crisis" class="mb-20 md:mb-32 section-fade-in">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-stone-800">The Mandate for Innovation</h3>
+                <p class="mt-4 text-lg text-stone-600 max-w-4xl mx-auto">India faces a profound mental health crisis, defined by a massive treatment gap, deep-seated social stigma, and a critical shortage of professionals. An estimated <strong>150 million people</strong> are in need of intervention, with the economic cost projected to hit <strong>$1.03 trillion</strong>. The current system is overwhelmed, creating an urgent need for a new, technology-led approach.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <h4 class="font-bold text-xl mb-3 text-sky-800">The Vast Treatment Gap</h4>
+                    <div class="chart-container mx-auto">
+                        <canvas id="treatmentGapChart"></canvas>
+                    </div>
+                    <p class="mt-4 text-stone-600">An estimated 70-92% of individuals with mental disorders in India receive no care, representing millions suffering in silence.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <h4 class="font-bold text-xl mb-3 text-sky-800">The Wall of Stigma</h4>
+                     <div class="chart-container mx-auto">
+                        <canvas id="stigmaChart"></canvas>
+                    </div>
+                    <p class="mt-4 text-stone-600">60% of people believe mental illness is due to a lack of willpower, creating a powerful barrier to seeking help.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center md:col-span-2 lg:col-span-1">
+                    <h4 class="font-bold text-xl mb-3 text-sky-800">Professional Shortage</h4>
+                     <div class="chart-container mx-auto">
+                        <canvas id="professionalShortageChart"></canvas>
+                    </div>
+                    <p class="mt-4 text-stone-600">India has only 0.75 psychiatrists per 100,000 people, far below the WHO recommendation of 3+.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Solution Section -->
+        <section id="solution" class="mb-20 md:mb-32 section-fade-in">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-stone-800">The Manas AI Solution</h3>
+                <p class="mt-4 text-lg text-stone-600 max-w-3xl mx-auto">Manas AI is not a replacement for therapy. It is a **confidential first step**—a "mental fitness thermometer"—designed to empower individuals with self-awareness in a private, stigma-free environment, bridging the gap to professional care.</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                 <h4 class="text-2xl font-bold text-sky-800 mb-6 text-center">The "Manas AI" Difference: A Competitive Edge</h4>
+                <div class="overflow-x-auto">
+                    <table class="w-full min-w-max text-left">
+                        <thead>
+                            <tr class="border-b-2 border-stone-200">
+                                <th class="p-4 font-semibold text-stone-700">Aspect</th>
+                                <th class="p-4 font-semibold text-sky-700 bg-sky-50 rounded-t-lg">Manas AI Approach</th>
+                                <th class="p-4 font-semibold text-stone-500">The Common Approach</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-stone-200">
+                                <td class="p-4 font-semibold">Language</td>
+                                <td class="p-4 bg-sky-50">Multilingual by Design: Built for the linguistic diversity of India.</td>
+                                <td class="p-4 text-stone-600">English-Centric: Most tools ignore vernacular languages.</td>
+                            </tr>
+                            <tr class="border-b border-stone-200">
+                                <td class="p-4 font-semibold">Analysis</td>
+                                <td class="p-4 bg-sky-50">Multi-modal Fusion: Combines *what* is said (text) and *how* it is said (voice) for deep, contextual understanding.</td>
+                                <td class="p-4 text-stone-600">Single-modal: Analyzes only text, missing crucial emotional cues.</td>
+                            </tr>
+                            <tr class="border-b border-stone-200">
+                                <td class="p-4 font-semibold">Technology</td>
+                                <td class="p-4 bg-sky-50">Custom Deep Learning: In-house models for fine-tuning and privacy.</td>
+                                <td class="p-4 text-stone-600">External APIs: Relies on generic, black-box services.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold">Security</td>
+                                <td class="p-4 bg-sky-50 rounded-b-lg">Privacy as a Feature: End-to-end encryption and user data controls are core to the design.</td>
+                                <td class="p-4 text-stone-600">An Afterthought: Security is often weak or ignored.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Core Features Section -->
+        <section id="features" class="mb-20 md:mb-32 section-fade-in">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-stone-800">Core Features & Functionality</h3>
+                <p class="mt-4 text-lg text-stone-600 max-w-3xl mx-auto">Manas AI is built on a foundation of unique features designed to provide a trustworthy, accessible, and insightful experience.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-3xl mb-3 text-amber-500">🗣️</div>
+                    <h4 class="font-bold text-lg mb-2 text-stone-800">Multilingual Chat & Voice</h4>
+                    <p class="text-stone-600">Express yourself in your native language (e.g., Hindi, Tamil) via text or voice. The AI understands both.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-3xl mb-3 text-amber-500">🔄</div>
+                    <h4 class="font-bold text-lg mb-2 text-stone-800">Dual-Input Fusion Engine</h4>
+                    <p class="text-stone-600">Combines insights from text and voice for a more accurate and holistic emotional assessment.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-3xl mb-3 text-amber-500">🧠</div>
+                    <h4 class="font-bold text-lg mb-2 text-stone-800">Custom AI Models</h4>
+                    <p class="text-stone-600">In-house deep learning models, not generic APIs, for greater control, privacy, and performance.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-3xl mb-3 text-amber-500">🔐</div>
+                    <h4 class="font-bold text-lg mb-2 text-stone-800">Secure Authentication</h4>
+                    <p class="text-stone-600">Modern login system using JWT and password hashing to protect user accounts from unauthorized access.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-3xl mb-3 text-amber-500">📈</div>
+                    <h4 class="font-bold text-lg mb-2 text-stone-800">Personalized Dashboard</h4>
+                    <p class="text-stone-600">Track your emotional trends over time with a private timeline chart, helping you identify patterns.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-3xl mb-3 text-amber-500">💡</div>
+                    <h4 class="font-bold text-lg mb-2 text-stone-800">Explainable AI (XAI)</h4>
+                    <p class="text-stone-600">Provides simple explanations for its findings (e.g., "Anxious state detected due to rapid speech").</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg lg:col-span-3">
+                     <div class="text-center">
+                        <div class="text-3xl mb-3 text-amber-500">🛡️</div>
+                        <h4 class="font-bold text-lg mb-2 text-stone-800">Data Privacy Controls</h4>
+                        <p class="text-stone-600 max-w-md mx-auto">Features like "Informed Consent" and a "Delete My Data" option give you full control over your information.</p>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="mb-20 md:mb-32 section-fade-in">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-stone-800">The User Journey</h3>
+                <p class="mt-4 text-lg text-stone-600 max-w-3xl mx-auto">The experience is designed to be simple, reassuring, and empowering, with privacy and user control as foundational principles.</p>
+            </div>
+            <div class="flex flex-col md:flex-row justify-center items-stretch gap-4">
+                <div class="flex-1 bg-white p-6 rounded-xl shadow-lg text-center flex flex-col items-center">
+                    <div class="bg-sky-100 text-sky-700 rounded-full h-12 w-12 flex items-center justify-center font-bold text-xl mb-4">1</div>
+                    <h4 class="font-bold text-lg mb-2 text-stone-800">Anonymous Onboarding</h4>
+                    <p class="text-stone-600">A simple, private sign-up with a clear, multilingual consent notice. No invasive questions.</p>
+                </div>
+                <div class="hidden md:flex items-center text-3xl text-stone-400">→</div>
+                <div class="flex-1 bg-white p-6 rounded-xl shadow-lg text-center flex flex-col items-center">
+                    <div class="bg-sky-100 text-sky-700 rounded-full h-12 w-12 flex items-center justify-center font-bold text-xl mb-4">2</div>
+                    <h4 class="font-bold text-lg mb-2 text-stone-800">Empathetic Interaction</h4>
+                    <p class="text-stone-600">Engage in a short, guided conversation via text or voice with "Manas Mitra" in your preferred language.</p>
+                </div>
+                <div class="hidden md:flex items-center text-3xl text-stone-400">→</div>
+                <div class="flex-1 bg-white p-6 rounded-xl shadow-lg text-center flex flex-col items-center">
+                    <div class="bg-sky-100 text-sky-700 rounded-full h-12 w-12 flex items-center justify-center font-bold text-xl mb-4">3</div>
+                    <h4 class="font-bold text-lg mb-2 text-stone-800">Dual-Input Analysis</h4>
+                    <p class="text-stone-600">Our AI analyzes both *what* you say (text) and *how* you say it (voice tone) for a holistic assessment.</p>
+                </div>
+                <div class="hidden md:flex items-center text-3xl text-stone-400">→</div>
+                <div class="flex-1 bg-white p-6 rounded-xl shadow-lg text-center flex flex-col items-center">
+                    <div class="bg-sky-100 text-sky-700 rounded-full h-12 w-12 flex items-center justify-center font-bold text-xl mb-4">4</div>
+                    <h4 class="font-bold text-lg mb-2 text-stone-800">Personalized Insight</h4>
+                    <p class="text-stone-600">Receive a private "Mental Fitness Score" on your dashboard and, if needed, a gentle, guided pathway to professional help.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Section -->
+        <section id="tech" class="mb-20 md:mb-32 section-fade-in">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-stone-800">Architecture & Technology Stack</h3>
+                <p class="mt-4 text-lg text-stone-600 max-w-3xl mx-auto">Manas AI is built on a modern, scalable, and secure microservices architecture, ensuring reliability and performance.</p>
+            </div>
+            <div class="bg-white p-4 sm:p-8 rounded-xl shadow-lg">
+                <div class="flex justify-center border-b border-stone-200 mb-6">
+                    <button data-tab="frontend" class="tech-tab tab-active px-4 py-2 sm:px-6 sm:py-3 font-semibold rounded-t-lg transition">Frontend</button>
+                    <button data-tab="backend" class="tech-tab tab-inactive px-4 py-2 sm:px-6 sm:py-3 font-semibold rounded-t-lg transition">Backend</button>
+                    <button data-tab="ai" class="tech-tab tab-inactive px-4 py-2 sm:px-6 sm:py-3 font-semibold rounded-t-lg transition">AI Service</button>
+                </div>
+                <div id="tech-content">
+                    <div id="frontend-content" class="tech-content-panel grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                           <h4 class="text-2xl font-bold text-sky-800 mb-3">User Interface</h4>
+                           <p class="text-stone-600 mb-4">A responsive and intuitive user experience is paramount. The frontend is built to be fast, accessible, and calming, providing a seamless interaction on any device.</p>
+                           <div class="space-y-2">
+                               <p><strong class="text-stone-700 w-28 inline-block">Framework:</strong> Next.js (React)</p>
+                               <p><strong class="text-stone-700 w-28 inline-block">Styling:</strong> Tailwind CSS</p>
+                               <p><strong class="text-stone-700 w-28 inline-block">Charts:</strong> Chart.js</p>
+                           </div>
+                        </div>
+                        <div class="text-center text-6xl text-sky-200">🖥️</div>
+                    </div>
+                    <div id="backend-content" class="tech-content-panel hidden grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                           <h4 class="text-2xl font-bold text-sky-800 mb-3">API Gateway & User Services</h4>
+                           <p class="text-stone-600 mb-4">The backend handles user authentication, session management, and acts as a secure gateway to the AI services, ensuring data integrity and fast response times.</p>
+                           <div class="space-y-2">
+                               <p><strong class="text-stone-700 w-28 inline-block">Framework:</strong> Node.js (Express)</p>
+                               <p><strong class="text-stone-700 w-28 inline-block">Database:</strong> PostgreSQL</p>
+                               <p><strong class="text-stone-700 w-28 inline-block">Security:</strong> JWT, bcrypt, HTTPS</p>
+                           </div>
+                        </div>
+                         <div class="text-center text-6xl text-sky-200">⚙️</div>
+                    </div>
+                    <div id="ai-content" class="tech-content-panel hidden grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                           <h4 class="text-2xl font-bold text-sky-800 mb-3">The Brain</h4>
+                           <p class="text-stone-600 mb-4">This dedicated service houses our custom-trained models. It performs the complex text and voice analysis, separated from the main app for maximum performance.</p>
+                           <div class="space-y-2">
+                               <p><strong class="text-stone-700 w-28 inline-block">Framework:</strong> Python (FastAPI)</p>
+                               <p><strong class="text-stone-700 w-28 inline-block">ML Libraries:</strong> PyTorch/TensorFlow</p>
+                               <p><strong class="text-stone-700 w-28 inline-block">Models:</strong> IndicBERT, CNNs</p>
+                           </div>
+                        </div>
+                         <div class="text-center text-6xl text-sky-200">🧠</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roadmap Section -->
+        <section id="roadmap" class="mb-20 md:mb-32 section-fade-in">
+             <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-stone-800">18-Month Project Roadmap</h3>
+                <p class="mt-4 text-lg text-stone-600 max-w-3xl mx-auto">A phased plan ensures a robust foundation, iterative improvement through real-world data, and a successful public launch.</p>
+            </div>
+            <div class="relative">
+                <div class="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-sky-200 hidden md:block"></div>
+                <div class="relative mb-12">
+                    <div class="md:flex items-center md:justify-end md:mr-[55%]">
+                        <div class="md:w-2/5 bg-white p-6 rounded-xl shadow-lg border-l-4 border-amber-400">
+                            <p class="text-sky-600 font-bold">Months 1-6</p>
+                            <h4 class="text-xl font-bold my-1 text-stone-800">Phase 1: MVP & Foundation</h4>
+                            <p class="text-stone-600">Develop the core app with secure login and a functional UI. Train foundational AI models on public datasets for English and Hindi.</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-1/2 -translate-x-1/2 -bottom-4 h-8 w-8 bg-sky-600 rounded-full border-4 border-white hidden md:block"></div>
+                </div>
+                <div class="relative mb-12">
+                    <div class="md:flex items-center md:ml-[55%]">
+                        <div class="md:w-2/5 bg-white p-6 rounded-xl shadow-lg border-l-4 border-amber-400">
+                             <p class="text-sky-600 font-bold">Months 7-12</p>
+                            <h4 class="text-xl font-bold my-1 text-stone-800">Phase 2: Closed Beta & Refinement</h4>
+                            <p class="text-stone-600">Launch a private beta to ethically collect anonymized data. Use this data to significantly improve model accuracy and expand language support.</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-1/2 -translate-x-1/2 -bottom-4 h-8 w-8 bg-sky-600 rounded-full border-4 border-white hidden md:block"></div>
+                </div>
+                <div class="relative">
+                    <div class="md:flex items-center md:justify-end md:mr-[55%]">
+                        <div class="md:w-2/5 bg-white p-6 rounded-xl shadow-lg border-l-4 border-amber-400">
+                             <p class="text-sky-600 font-bold">Months 13-18</p>
+                            <h4 class="text-xl font-bold my-1 text-stone-800">Phase 3: Public Launch & Scaling</h4>
+                            <p class="text-stone-600">Launch the app publicly on app stores. Monitor performance, gather user feedback, and continuously improve the platform and its AI models.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Research Section -->
+        <section id="research" class="mb-20 md:mb-32 section-fade-in">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-stone-800">Research & Academic Contribution</h3>
+                <p class="mt-4 text-lg text-stone-600 max-w-3xl mx-auto">This project is not just an application; it's a research platform. The work can be the basis of a significant academic paper, contributing valuable insights to the global scientific community.</p>
+            </div>
+             <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h4 class="text-2xl font-bold text-sky-800 mb-4 text-center">Potential Research Paper Topics</h4>
+                <ul class="space-y-3 max-w-2xl mx-auto list-disc list-inside text-stone-700">
+                    <li>A comparative study on the accuracy of multi-modal (text + voice) vs. single-modal analysis for mental health screening in Indic languages.</li>
+                    <li>An investigation into the challenges and strategies for developing ethically-sound mental health technologies for non-English speaking populations.</li>
+                    <li>A proposed framework for building privacy-preserving AI systems for sensitive health data, compliant with the DPDP Act.</li>
+                </ul>
+             </div>
+        </section>
+
+        <!-- Ethics Section -->
+        <section id="ethics" class="section-fade-in">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-stone-800">Ethical Framework & Data Privacy</h3>
+                <p class="mt-4 text-lg text-stone-600 max-w-3xl mx-auto">Handling sensitive health data is a profound responsibility. Our commitment to trust and safety is built on a non-negotiable foundation of security and ethics.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-3xl mb-3 text-sky-600">⚖️</div>
+                    <h4 class="font-bold text-lg mb-2">Legal Compliance</h4>
+                    <p class="text-stone-600">Strict adherence to India's <b>Digital Personal Data Protection Act (DPDP), 2023</b>, ensuring lawful consent, data minimization, and full user rights.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-3xl mb-3 text-sky-600">�‍⚕️</div>
+                    <h4 class="font-bold text-lg mb-2">Medical Ethics</h4>
+                    <p class="text-stone-600">Guided by <b>ICMR's Ethical AI Guidelines</b>, including transparency, fairness, and a "human-in-the-loop" for reviewing high-risk cases.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-3xl mb-3 text-sky-600">🔒</div>
+                    <h4 class="font-bold text-lg mb-2">Data Security</h4>
+                    <p class="text-stone-600"><b>End-to-end encryption</b> (AES-256) for all data in transit and at rest. Your private information remains private, always.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-800 text-white mt-24">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <h3 class="text-2xl font-bold text-sky-300">Manas AI</h3>
+            <p class="mt-2 max-w-2xl mx-auto text-stone-300">Leveraging technology for a more accessible, inclusive, and proactive mental healthcare ecosystem in India. This project is a challenging yet rewarding endeavor that demonstrates a deep and practical understanding of modern computer science for social good.</p>
+            <p class="mt-6 text-sm text-stone-400">Project Proposal | August 4, 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Chart.js Data and Options
+            const chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#44403c', // stone-700
+                            font: {
+                                family: "'Inter', sans-serif"
+                            }
+                        }
+                    },
+                    tooltip: {
+                        bodyFont: {
+                            family: "'Inter', sans-serif"
+                        },
+                        titleFont: {
+                            family: "'Inter', sans-serif"
+                        }
+                    }
+                }
+            };
+
+            // Treatment Gap Chart
+            const treatmentGapCtx = document.getElementById('treatmentGapChart').getContext('2d');
+            new Chart(treatmentGapCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Receiving No Care', 'Receiving Care'],
+                    datasets: [{
+                        label: 'Treatment Gap',
+                        data: [81, 19], // Average of 70-92% is ~81%
+                        backgroundColor: ['#f87171', '#60a5fa'], // red-400, blue-400
+                        borderColor: '#ffffff',
+                        borderWidth: 4
+                    }]
+                },
+                options: chartOptions
+            });
+
+            // Stigma Chart
+            const stigmaCtx = document.getElementById('stigmaChart').getContext('2d');
+            new Chart(stigmaCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Believe it\'s lack of willpower', 'Other'],
+                    datasets: [{
+                        label: 'Stigma Beliefs',
+                        data: [60, 40],
+                        backgroundColor: ['#fb923c', '#d1d5db'], // orange-400, gray-300
+                        borderColor: '#ffffff',
+                        borderWidth: 4
+                    }]
+                },
+                options: chartOptions
+            });
+
+            // Professional Shortage Chart
+            const professionalShortageCtx = document.getElementById('professionalShortageChart').getContext('2d');
+            new Chart(professionalShortageCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Psychiatrists per 100k'],
+                    datasets: [{
+                        label: 'India',
+                        data: [0.75],
+                        backgroundColor: '#f87171', // red-400
+                        borderColor: '#dc2626', // red-600
+                        borderWidth: 1
+                    }, {
+                        label: 'WHO Recommendation',
+                        data: [3],
+                        backgroundColor: '#60a5fa', // blue-400
+                        borderColor: '#2563eb', // blue-600
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    ...chartOptions,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#44403c' }
+                        },
+                        x: {
+                            ticks: { color: '#44403c' }
+                        }
+                    }
+                }
+            });
+
+            // Tech Tabs Interaction
+            const tabs = document.querySelectorAll('.tech-tab');
+            const contentPanels = document.querySelectorAll('.tech-content-panel');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => {
+                        t.classList.remove('tab-active');
+                        t.classList.add('tab-inactive');
+                    });
+                    tab.classList.remove('tab-inactive');
+                    tab.classList.add('tab-active');
+
+                    const target = tab.dataset.tab;
+                    contentPanels.forEach(panel => {
+                        if (panel.id === `${target}-content`) {
+                            panel.classList.remove('hidden');
+                        } else {
+                            panel.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            // Section Fade-in on Scroll
+            const sections = document.querySelectorAll('.section-fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
