@@ -2,17 +2,15 @@
 
 A Multilingual & Secure Platform for Proactive Mental Health Screening
 
-![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg) ![Status: In Development](https://img.shields.io/badge/status-in%20development-orange.svg)
-
 ---
 
-### **1. Project Overview**
+### **Project Overview**
 
 "Manas AI" is a secure web application for proactive mental health screening in India. It uses a unique **multi-modal AI engine** to analyze both **text and voice tone** in multiple Indian languages for a more accurate assessment. Unlike other tools, it is built with **custom AI models** (not generic APIs) and a **privacy-first design**, featuring end-to-end encryption and full user data control. This combination of multilingual, multi-modal, and secure custom technology makes it a significant step forward for accessible mental health care in India.
 
 ---
 
-### **2. Key Features**
+### **Key Features**
 
 * **Multi-modal AI Analysis:** Custom-trained models analyze both text and voice, providing deeper, more accurate insights than text-only systems.
 * **Multilingual Support:** The platform is accessible to a wide Indian audience by supporting major vernacular languages alongside English.
