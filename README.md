@@ -17,5 +17,3 @@ A Multilingual & Secure Platform for Proactive Mental Health Screening
 * **Secure Platform:** A full-stack application built from the ground up with robust user authentication and end-to-end encryption.
 * **Personalized Dashboard:** Provides users with actionable insights and a timeline to track their emotional well-being over time.
 * **Research-Driven:** The project aims to produce a high-quality research paper on the effectiveness of this novel screening approach.
-
----
