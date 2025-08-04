@@ -1,3 +1,5 @@
+**Live:** https://batoolamina.github.io/ProjectIdea/
+
 # Manas AI
 
 A Multilingual & Secure Platform for Proactive Mental Health Screening
